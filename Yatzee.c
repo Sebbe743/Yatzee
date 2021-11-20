@@ -38,7 +38,7 @@ void scoreinvullen1();
 void scoreinvullen2();
 void keepers(); //functies voor de keepers bij te houden
 
-int welkeSpeler(int Turn); //modulu operator to get player 1/2
+int welkePlayer(int Turn); //modulu operator to get player 1/2
 
 int aces(); //functie voor het aantal enen
 int twos(); //functie voor het aantal twee'en
@@ -80,13 +80,13 @@ int main(void)
 						printIntro();
 						srand(time(NULL)); //random nummers worden gebasseerd op het huidige tijdstip 
 			
-						printf("\nSpeler 1 wat is je naam? ");
+						printf("\nPlayer 1 whats your name? ");
 						scanf("%s",Player1);
 			
-						printf("\nSpeler 2 wat is je naam? ");
+						printf("\nPlayer 2 whats your name? ");
 						scanf("%s",Player2);
 			
-						printf("\n%s en %s laten we beginnen \n", Player1, Player2);
+						printf("\n%s and %s lets start \n", Player1, Player2);
 			
 						for(int i=0; i<5; i++)
 						{
@@ -118,9 +118,9 @@ int main(void)
 					
 					case player1_State:				
 						
-							printf("\n%s is aan de beurt\n", Player1);
+							printf("\n%s's turn\n", Player1);
 							throw();
-							printf("\n%s kies een lege positie voor de score in te vullen. (getal tussen 1 en 13)\n", Player1);
+							printf("\n%s Please choose a free position between 1 through 13 without a value\n", Player1);
 						
 							scorebord();
 							scoreinvullen1();
@@ -135,9 +135,9 @@ int main(void)
 					case player2_State:
 					
 						
-							printf("\n%s is aan de beurt\n", Player2);
+							printf("\n%s's turn\n", Player2);
 							throw();
-							printf("\n%s kies een lege positie voor de score in te vullen. (getal tussen 1 en 13)\n", Player2);
+							printf("\n%s Please choose a free position between 1 through 13 without a value\n", Player2);
 						
 							scorebord();
 							scoreinvullen2();
@@ -160,23 +160,23 @@ int main(void)
 					case result_State:
 						if(Scorespeler1[19]>Scorespeler2[19])
 						{
-							printf("\n%s heeft gewonnen \n", Player1);
+							printf("\n%s won \n", Player1);
 							winsspeler1++;
 						}
 						else
 						{
-							printf("\n%s heeft gewonnen \n", Player2);
+							printf("\n%s won\n", Player2);
 							winsspeler2++;
 						}	
 						if( game == 5)
 						{
 							if(winsspeler1>winsspeler2)
 							{
-								printf(" %s heeft gewonnen",Player1);
+								printf(" %s won",Player1);
 							}
 							else
 							{
-								printf(" %s heeft gewonnen", Player2);
+								printf(" %s won", Player2);
 							}
 						}	
 					
@@ -230,7 +230,7 @@ void scoreinvullen1()
 		
 			else
 			{
-				printf("\nGelieve een positie tussen 1 en 13 op te geven zonder score.\n");
+				printf("\nPlease choose a free position between 1 through 13 without a value\n");
 			}
 		}
 		else
@@ -268,7 +268,7 @@ void scoreinvullen1()
 							x++;
 							break;
 					default:
-							printf("\nGelieve een positie tussen 1 en 13 op te geven zonder score.\n");
+							printf("\Please choose a free position between 1 through 13 without a value\n");
 							x++;
 							break;
 				}
@@ -282,7 +282,7 @@ void scoreinvullen1()
 			
 			else
 			{
-				printf("\nGelieve een positie tussen 1 en 13 op te geven zonder score.\n");
+				printf("\nPlease choose a free position between 1 through 13 without a value\n");
 			}
 		}
 		
@@ -352,7 +352,7 @@ void scoreinvullen2()
 		
 			else
 			{
-				printf("\nGelieve een positie tussen 1 en 13 op te geven zonder score.\n");
+				printf("\Please choose a free position between 1 through 13 without a value\n");
 			}
 		}
 		else
@@ -390,7 +390,7 @@ void scoreinvullen2()
 							x++;
 							break;
 					default:
-							printf("\nGelieve een positie tussen 1 en 13 op te geven zonder score.\n");
+							printf("\Please choose a free position between 1 through 13 without a value\n");
 							break;
 				}
 			}
@@ -403,7 +403,7 @@ void scoreinvullen2()
 			
 			else
 			{
-				printf("\nGelieve een positie tussen 1 en 13 op te geven zonder score.\n");
+				printf("\nPlease choose a free position between 1 through 13 without a value \n");
 			}
 		}
 	}
@@ -439,7 +439,7 @@ void throw()
 		Sleep(1000);
 	}
 	keepers();
-	printf("\nWorp voltooid, de eind waarde van de dobbelstenen van 1 tot 5 zijn: %d %d %d %d %d \n", Dobbelstenen[0], Dobbelstenen[1], Dobbelstenen[2], Dobbelstenen[3], Dobbelstenen[4]);
+	printf("\nThrow completed, the end values of the dices from 1 to 5 are: %d %d %d %d %d \n", Dobbelstenen[0], Dobbelstenen[1], Dobbelstenen[2], Dobbelstenen[3], Dobbelstenen[4]);
 	// score invullen met een switch
 	
 }
@@ -451,7 +451,7 @@ void keepers()
 	int i = 0; 
 	int x=0;
 	
-	printf("\nWaardes van de dobbelstenen 1 tot 5:  %d %d %d %d %d \nGeef de nummers van de dobbelstenen die je opnieuw wilt gooien (niet-keepers tussen 1-5), geef 0 in om te stoppen ", Dobbelstenen[0], Dobbelstenen[1], Dobbelstenen[2], Dobbelstenen[3], Dobbelstenen[4]);
+	printf("\nvalues of dices from 1 to 5:  %d %d %d %d %d \nGeef de nummers van de dobbelstenen die je opnieuw wilt gooien (niet-keepers tussen 1-5), geef 0 in om te stoppen ", Dobbelstenen[0], Dobbelstenen[1], Dobbelstenen[2], Dobbelstenen[3], Dobbelstenen[4]);
 	
 	do
 	{
@@ -469,7 +469,7 @@ void keepers()
 		}
 		else
 		{
-			printf("%d buiten bereik (keepers selecteren tussen 1-5)\n", input+1);
+			printf("%d Out of reach, choose the dices you wanna rethrow\n", input+1);
 		}
 		i++;		
 	}
@@ -497,7 +497,7 @@ void keepers()
 	{
 		input = 1;
 		i=0;
-		printf("\nWaardes van de dobbelstenen 1 tot 5:  %d %d %d %d %d \nGeef de nummers van de dobbelstenen die je opnieuw wilt gooien (niet-keepers tussen 1-5), geef 0 in om te stoppen ", Dobbelstenen[0], Dobbelstenen[1], Dobbelstenen[2], Dobbelstenen[3], Dobbelstenen[4]);
+		printf("\nValues of the dices 1-5: %d %d %d %d %d \nchoose the dices you wanna rethrow, enter "0" to continue ", Dobbelstenen[0], Dobbelstenen[1], Dobbelstenen[2], Dobbelstenen[3], Dobbelstenen[4]);
 		do
 		{
 			scanf("%d",&input);
@@ -514,7 +514,7 @@ void keepers()
 			}
 			else
 			{
-				printf("%d buiten bereik (keepers selecteren tussen 1-5)\n", input+1);
+				printf("%d Out of reach, choose the dices you wanna rethrow\n", input+1);
 			}
 			i++;		
 		}
@@ -566,121 +566,121 @@ void sortdobbelstenen()
 
 void scorebord()
 {
-		printf("                                				 Speler      Speler     \n");
+		printf("                                				 Player      Player     \n");
 		printf("   |------------------------------------|		|-------|	|-------|	\n");
 		printf("   | Upper Section			|		|   	|	|   	|	\n");                                   
 		printf("   |------------------------------------|		|-------|	|-------|	\n");
 	
 	if(Scorespeler1[0]==-1 && Scorespeler2[0]==-1)
 	{
-		printf("   | Count and add only Aces		|		|   	| 	|   	| Dit is keuze 1	\n");
+		printf("   | Count and add only Aces		|		|   	| 	|   	| Choice number 1	\n");
 	}
 	else if(Scorespeler1[0]!=-1 && Scorespeler2[0]==-1)
 	{
-		printf("   | Count and add only Aces		|		|   %d	| 	|   	| Dit is keuze 1	\n", Scorespeler1[0]);
+		printf("   | Count and add only Aces		|		|   %d	| 	|   	| Choice number 1	\n", Scorespeler1[0]);
 	}
 	else if(Scorespeler1[0]==-1 && Scorespeler2[0]!=-1)
 	{
-		printf("   | Count and add only Aces		|		|   	| 	|   %d	| Dit is keuze 1	\n", Scorespeler2[0]);
+		printf("   | Count and add only Aces		|		|   	| 	|   %d	| Choice number 1	\n", Scorespeler2[0]);
 	}
 	else
 	{
-		printf("   | Count and add only Aces		|		|   %d	| 	|   %d	| Dit is keuze 1	\n", Scorespeler1[0],Scorespeler2[0]);
+		printf("   | Count and add only Aces		|		|   %d	| 	|   %d	| Choice number 1	\n", Scorespeler1[0],Scorespeler2[0]);
 	}
 	
 		printf("   |------------------------------------|	    	|-------|	|-------|	\n");
 	
 	if(Scorespeler1[1]==-1 && Scorespeler2[1]==-1)
 	{
-		printf("   | Count and add only Twos 	 	|		|   	| 	|   	| Dit is keuze 2	\n");
+		printf("   | Count and add only Twos 	 	|		|   	| 	|   	| Choice number 2	\n");
 	}
 	else if(Scorespeler1[1]!=-1 && Scorespeler2[1]==-1)
 	{
-		printf("   | Count and add only Twos 	 	|		|   %d	| 	|   	| Dit is keuze 2	\n", Scorespeler1[1]);
+		printf("   | Count and add only Twos 	 	|		|   %d	| 	|   	| Choice number 2	\n", Scorespeler1[1]);
 	}
 	else if(Scorespeler1[1]==-1 && Scorespeler2[1]!=-1)
 	{
-		printf("   | Count and add only Twos		|		|   	| 	|   %d	| Dit is keuze 2	\n", Scorespeler2[1]);
+		printf("   | Count and add only Twos		|		|   	| 	|   %d	| Choice number 2	\n", Scorespeler2[1]);
 	}
 	else
 	{
-		printf("   | Count and add only Twos  		|		|   %d	|	|   %d	| Dit is keuze 2	\n", Scorespeler1[1],Scorespeler2[1]);
+		printf("   | Count and add only Twos  		|		|   %d	|	|   %d	| Choice number 2	\n", Scorespeler1[1],Scorespeler2[1]);
 	}
 	
 		printf("   |------------------------------------|   		|-------|	|-------|	\n"); 
 	
 	if(Scorespeler1[2]==-1 && Scorespeler2[2]==-1)
 	{
-		printf("   | Count and add only Threes		|		|   	|	|   	| Dit is keuze 3	\n");
+		printf("   | Count and add only Threes		|		|   	|	|   	| Choice number 3	\n");
 	}
 	else if(Scorespeler1[2]!=-1 && Scorespeler2[2]==-1)
 	{
-		printf("   | Count and add only Threes		|		|   %d	|	|   	| Dit is keuze 3	\n", Scorespeler1[2]);
+		printf("   | Count and add only Threes		|		|   %d	|	|   	| Choice number 3	\n", Scorespeler1[2]);
 	}
 	else if(Scorespeler1[2]==-1 && Scorespeler2[2]!=-1)
 	{
-		printf("   | Count and add only Threes		|		|   	|	|   %d	| Dit is keuze 3	\n", Scorespeler2[2]);
+		printf("   | Count and add only Threes		|		|   	|	|   %d	| Choice number 3	\n", Scorespeler2[2]);
 	}
 	else
 	{
-		printf("   | Count and add only Threes		|		|   %d	|	|   %d	| Dit is keuze 3	\n", Scorespeler1[2], Scorespeler2[2]);
+		printf("   | Count and add only Threes		|		|   %d	|	|   %d	| Choice number 3	\n", Scorespeler1[2], Scorespeler2[2]);
 	}
 
 		printf("   |------------------------------------|    		|-------|	|-------|	\n");
 	
 	if(Scorespeler1[3]==-1 && Scorespeler2[3]==-1)
 	{
-		printf("   | Count and add only Fours		|	 	|   	|	|   	| Dit is keuze 4	\n");
+		printf("   | Count and add only Fours		|	 	|   	|	|   	| Choice number 4	\n");
 	}
 	else if(Scorespeler1[3]!=-1 && Scorespeler2[3]==-1)
 	{
-		printf("   | Count and add only Fours		|	 	|   %d 	|	|   	| Dit is keuze 4	\n", Scorespeler1[3]);
+		printf("   | Count and add only Fours		|	 	|   %d 	|	|   	| Choice number 4	\n", Scorespeler1[3]);
 	}
 	else if(Scorespeler1[3]==-1 && Scorespeler2[3]!=-1)
 	{
-		printf("   | Count and add only Fours 		|	 	|   	|	|   %d	| Dit is keuze 4	\n", Scorespeler2[3]);
+		printf("   | Count and add only Fours 		|	 	|   	|	|   %d	| Choice number 4	\n", Scorespeler2[3]);
 	}
 	else
 	{	
-		printf("   | Count and add only Fours 		|	 	|   %d 	|	|   %d	| Dit is keuze 4	\n", Scorespeler1[3], Scorespeler2[3]);
+		printf("   | Count and add only Fours 		|	 	|   %d 	|	|   %d	| Choice number 4	\n", Scorespeler1[3], Scorespeler2[3]);
 	}
 	
 		printf("   |------------------------------------|		|-------|	|-------|	\n");
 	
 	if(Scorespeler1[4]==-1 && Scorespeler2[4]==-1)
 	{
-		printf("   | Count and add only Fives	 	|	 	|   	|	|   	| Dit is keuze 5	\n");
+		printf("   | Count and add only Fives	 	|	 	|   	|	|   	| Choice number 5	\n");
 	}
 	else if(Scorespeler1[4]!=-1 && Scorespeler2[4]==-1)
 	{
-		printf("   | Count and add only Fives	 	|	 	|  %d	|	|   	| Dit is keuze 5	\n", Scorespeler1[4]);
+		printf("   | Count and add only Fives	 	|	 	|  %d	|	|   	| Choice number 5	\n", Scorespeler1[4]);
 	}
 	else if(Scorespeler1[4]==-1 && Scorespeler2[4]!=-1)
 	{
-		printf("   | Count and add only Fives	 	|    		|   	|	|   %d	| Dit is keuze 5	\n", Scorespeler2[4]);
+		printf("   | Count and add only Fives	 	|    		|   	|	|   %d	| Choice number 5	\n", Scorespeler2[4]);
 	}
 	else
 	{
-		printf("   | Count and add only Fives		|   	 	|   %d	|	|   %d	| Dit is keuze 5	\n", Scorespeler1[4], Scorespeler2[4]); 
+		printf("   | Count and add only Fives		|   	 	|   %d	|	|   %d	| Choice number 5	\n", Scorespeler1[4], Scorespeler2[4]); 
 	}
 
 		printf("   |------------------------------------|		|-------|	|-------|	\n"); 
 	
 	if(Scorespeler1[5]==-1 && Scorespeler2[5]==-1)
 	{
-		printf("   | Count and add only Sixes	 	|    		|   	|	|   	| Dit is keuze 6	\n");
+		printf("   | Count and add only Sixes	 	|    		|   	|	|   	| Choice number 6	\n");
 	}
 	else if(Scorespeler1[5]!=-1 && Scorespeler2[5]==-1)
 	{
-		printf("   | Count and add only Sixes		|    		|   %d	|	|   	| Dit is keuze 6	\n", Scorespeler1[5]);
+		printf("   | Count and add only Sixes		|    		|   %d	|	|   	| Choice number 6	\n", Scorespeler1[5]);
 	}
 	else if(Scorespeler1[5]==-1 && Scorespeler2[5]!=-1)
 	{
-		printf("   | Count and add only Sixes		|    		|   	|	|   %d	| Dit is keuze 6	\n", Scorespeler2[5]);
+		printf("   | Count and add only Sixes		|    		|   	|	|   %d	| Choice number 6	\n", Scorespeler2[5]);
 	}
 	else
 	{
-		printf("   | Count and add only Sixes 		|    		|   %d	|	|   %d	| Dit is keuze 6	\n", Scorespeler1[5], Scorespeler2[5]);
+		printf("   | Count and add only Sixes 		|    		|   %d	|	|   %d	| Choice number 6	\n", Scorespeler1[5], Scorespeler2[5]);
 	}	
 
 		printf("   |------------------------------------|    		|-------|	|-------|	\n");
@@ -699,132 +699,132 @@ void scorebord()
 	
 	if(Scorespeler1[9]==-1 && Scorespeler2[9]==-1)
 	{
-		printf("   | 3 of a kind   total of all dice 	|		|   	|	|   	| Dit is keuze 7	\n");
+		printf("   | 3 of a kind   total of all dice 	|		|   	|	|   	| Choice number 7	\n");
 	}
 	else if(Scorespeler1[9]!=-1 && Scorespeler2[9]==-1)
 	{
-		printf("   | 3 of a kind   total of all dice 	|		|   %d	|	|   	| Dit is keuze 7	\n", Scorespeler1[9]);
+		printf("   | 3 of a kind   total of all dice 	|		|   %d	|	|   	| Choice number 7	\n", Scorespeler1[9]);
 	}
 	else if(Scorespeler1[9]==-1 && Scorespeler2[9]!=-1)
 	{
-		printf("   | 3 of a kind   total of all dice  	|		|   	|	|   %d	| Dit is keuze 7	\n", Scorespeler2[9]);
+		printf("   | 3 of a kind   total of all dice  	|		|   	|	|   %d	| Choice number 7	\n", Scorespeler2[9]);
 	}
 	else
 	{
-		printf("   | 3 of a kind   total of all dice  	|		|   %d	|	|   %d	| Dit is keuze 7	\n", Scorespeler1[9], Scorespeler2[9]);
+		printf("   | 3 of a kind   total of all dice  	|		|   %d	|	|   %d	| Choice number 7	\n", Scorespeler1[9], Scorespeler2[9]);
 	}
 	
 		printf("   |------------------------------------|		|-------|	|-------|	\n");
 	
 	if(Scorespeler1[10]==-1 && Scorespeler2[10]==-1)
 	{
-		printf("   | 4 of a kind   total of all dice 	|		|   	|	|   	| Dit is keuze 8	\n");
+		printf("   | 4 of a kind   total of all dice 	|		|   	|	|   	| Choice number 8	\n");
 	}
 	else if(Scorespeler1[10]!=-1 && Scorespeler2[10]==-1)
 	{
-		printf("   | 4 of a kind   total of all dice 	|		|   %d	|	|   	| Dit is keuze 8	\n", Scorespeler1[10]);
+		printf("   | 4 of a kind   total of all dice 	|		|   %d	|	|   	| Choice number 8	\n", Scorespeler1[10]);
 	}
 	else if(Scorespeler1[10]==-1 && Scorespeler2[10]!=-1)
 	{
-		printf("   | 4 of a kind   total of all dice 	|		|   	|	|   %d	| Dit is keuze 8	\n", Scorespeler2[10]);
+		printf("   | 4 of a kind   total of all dice 	|		|   	|	|   %d	| Choice number 8	\n", Scorespeler2[10]);
 	}
 	else
 	{
-		printf("   | 4 of a kind   total of all dice 	|		|   %d	|	|   %d	| Dit is keuze 8	\n", Scorespeler1[10], Scorespeler2[10]);
+		printf("   | 4 of a kind   total of all dice 	|		|   %d	|	|   %d	| Choice number 8	\n", Scorespeler1[10], Scorespeler2[10]);
 	}
 	
 		printf("   |------------------------------------|		|-------|	|-------|	\n");
 	
 	if(Scorespeler1[11]==-1 && Scorespeler2[11]==-1)
 	{
-		printf("   | Full House                   25 	|		|   	|	|   	| Dit is keuze 9	\n");
+		printf("   | Full House                   25 	|		|   	|	|   	| Choice number 9	\n");
 	}
 	else if(Scorespeler1[11]!=-1 && Scorespeler2[11]==-1)
 	{
-		printf("   | Full House                   25 	|		|   %d	|	|   	| Dit is keuze 9	\n", Scorespeler1[11]);
+		printf("   | Full House                   25 	|		|   %d	|	|   	| Choice number 9	\n", Scorespeler1[11]);
 	}
 	else if(Scorespeler1[11]==-1 && Scorespeler2[11]!=-1)
 	{
-		printf("   | Full House                   25 	|		|   	|	|   %d	| Dit is keuze 9	\n", Scorespeler2[11]);
+		printf("   | Full House                   25 	|		|   	|	|   %d	| Choice number 9	\n", Scorespeler2[11]);
 	}
 	else
 	{
-		printf("   | Full House                   25 	|		|   %d	|	|   %d	| Dit is keuze 9	\n", Scorespeler1[11], Scorespeler2[11]);
+		printf("   | Full House                   25 	|		|   %d	|	|   %d	| Choice number 9	\n", Scorespeler1[11], Scorespeler2[11]);
 	}
 	
 		printf("   |------------------------------------|		|-------|	|-------|	\n");
 
 	if(Scorespeler1[12]==-1 && Scorespeler2[12]==-1)
 	{
-		printf("   | Low straignt                 30 	|		|   	|	|   	| Dit is keuze 10	\n");
+		printf("   | Low straignt                 30 	|		|   	|	|   	| Choice number 10	\n");
 	}
 	else if(Scorespeler1[12]!=-1 && Scorespeler2[12]==-1)
 	{
-		printf("   | Low straignt                 30 	|		|   %d	|	|   	| Dit is keuze 10	\n", Scorespeler1[12]);
+		printf("   | Low straignt                 30 	|		|   %d	|	|   	| Choice number 10	\n", Scorespeler1[12]);
 	}
 	else if(Scorespeler1[12]==-1 && Scorespeler2[12]!=-1)
 	{
-		printf("   | Low straignt                 30 	|		|   	|	|   %d	| Dit is keuze 10	\n", Scorespeler2[12]);
+		printf("   | Low straignt                 30 	|		|   	|	|   %d	| Choice number 10	\n", Scorespeler2[12]);
 	}
 	else
 	{
-		printf("   | Low straignt                 30 	|		|   %d	|	|   %d	| Dit is keuze 10	\n", Scorespeler1[12], Scorespeler2[12]);
+		printf("   | Low straignt                 30 	|		|   %d	|	|   %d	| Choice number 10	\n", Scorespeler1[12], Scorespeler2[12]);
 	}
 	
 		printf("   |------------------------------------|		|-------|	|-------|	\n");
 	
 	if(Scorespeler1[13]==-1 && Scorespeler2[13]==-1)
 	{
-		printf("   | High Straight                40 	|		|   	|	|   	| Dit is keuze 11	\n");
+		printf("   | High Straight                40 	|		|   	|	|   	| Choice number 11	\n");
 	}
 	else if(Scorespeler1[13]!=-1 && Scorespeler2[13]==-1)
 	{
-		printf("   | High Straight                40 	|		|   %d	|	|   	| Dit is keuze 11	\n", Scorespeler1[13]);
+		printf("   | High Straight                40 	|		|   %d	|	|   	| Choice number 11	\n", Scorespeler1[13]);
 	}
 	else if(Scorespeler1[13]==-1 && Scorespeler2[13]!=-1)
 	{
-		printf("   | High Straight                40 	|		|   	|	|   %d	| Dit is keuze 11	\n", Scorespeler2[13]);
+		printf("   | High Straight                40 	|		|   	|	|   %d	| Choice number 11	\n", Scorespeler2[13]);
 	}
 	else
 	{
-		printf("   | High Straight                40 	|		|   %d	|	|   %d	| Dit is keuze 11	\n", Scorespeler1[13], Scorespeler2[13]);
+		printf("   | High Straight                40 	|		|   %d	|	|   %d	| Choice number 11	\n", Scorespeler1[13], Scorespeler2[13]);
 	}
 		printf("   |------------------------------------|		|-------|	|-------|	\n");
 	
 	if(Scorespeler1[14]==-1 && Scorespeler2[14]==-1)
 	{
-		printf("   | Yahtzee                      50 	|		|   	|	|   	| Dit is keuze 12	\n");
+		printf("   | Yahtzee                      50 	|		|   	|	|   	| Choice number 12	\n");
 	}
 	else if(Scorespeler1[14]!=-1 && Scorespeler2[14]==-1)
 	{
-		printf("   | Yahtzee                      50 	|		|   %d	|	|   	| Dit is keuze 12	\n", Scorespeler1[14]);
+		printf("   | Yahtzee                      50 	|		|   %d	|	|   	| Choice number 12	\n", Scorespeler1[14]);
 	}
 	else if(Scorespeler1[14]==-1 && Scorespeler2[14]!=-1)
 	{
-		printf("   | Yahtzee                      50 	|		|   	|	|   %d	| Dit is keuze 12	\n", Scorespeler2[14]);
+		printf("   | Yahtzee                      50 	|		|   	|	|   %d	| Choice number 12	\n", Scorespeler2[14]);
 	}
 	else
 	{
-		printf("   | Yahtzee                      50 	|		|   %d	|	|   %d	| Dit is keuze 12	\n", Scorespeler1[14], Scorespeler2[14]);
+		printf("   | Yahtzee                      50 	|		|   %d	|	|   %d	| Choice number 12	\n", Scorespeler1[14], Scorespeler2[14]);
 	}
 	
 		printf("   |------------------------------------|		|-------|	|-------|	\n");
 	
 	if(Scorespeler1[15]==-1 && Scorespeler2[15]==-1)
 	{
-		printf("   | chance        Total of all dice 	|		|   	|	|   	| Dit is keuze 13	\n");
+		printf("   | chance        Total of all dice 	|		|   	|	|   	| Choice number 13	\n");
 	}
 	else if(Scorespeler1[15]!=-1 && Scorespeler2[15]==-1)
 	{
-		printf("   | chance        Total of all dice 	|		|   %d	|	|   	| Dit is keuze 13	\n", Scorespeler1[15]);
+		printf("   | chance        Total of all dice 	|		|   %d	|	|   	| Choice number 13	\n", Scorespeler1[15]);
 	}
 	else if(Scorespeler1[15]==-1 && Scorespeler2[15]!=-1)
 	{
-		printf("   | chance        Total of all dice 	|		|   	|	|   %d	| Dit is keuze 13	\n", Scorespeler2[15]);
+		printf("   | chance        Total of all dice 	|		|   	|	|   %d	| Choice number 13	\n", Scorespeler2[15]);
 	}
 	else
 	{
-		printf("   | chance        Total of all dice 	|		|   %d	|	|   %d	| Dit is keuze 13	\n", Scorespeler1[15], Scorespeler2[15]);
+		printf("   | chance        Total of all dice 	|		|   %d	|	|   %d	| Choice number 13	\n", Scorespeler1[15], Scorespeler2[15]);
 	}
 	
 		printf("   |------------------------------------|		|-------|	|-------|	\n");
@@ -1088,7 +1088,7 @@ int chance()
 }
 
 
-int welkeSpeler(int Turn)
+int welkePlayer(int Turn)
 {
 	int rest = 0;
 	rest = Turn%2;
@@ -1275,7 +1275,4 @@ printf("| |   |______|   | || ||____|  |____|| || | |____||____| | || |   |_____
 printf("| |              | || |              | || |              | || |              | || |              | || |              | || |              | |  \n");
 printf("| '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' || '--------------' |  \n");
 printf(" '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'  '----------------'   \n\n");
-
-
-printf("<< Uitleg voeg je hier toe>>\n");
 }
