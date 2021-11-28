@@ -268,8 +268,7 @@ void scoreinvullen1()
 							x++;
 							break;
 					default:
-							printf("\Please choose a free position between 1 through 13 without a value\n");
-							x++;
+							printf("Please choose a free position between 1 through 13 without a value\n");
 							break;
 				}
 			}
@@ -352,7 +351,7 @@ void scoreinvullen2()
 		
 			else
 			{
-				printf("\Please choose a free position between 1 through 13 without a value\n");
+				printf("Please choose a free position between 1 through 13 without a value\n");
 			}
 		}
 		else
@@ -390,7 +389,7 @@ void scoreinvullen2()
 							x++;
 							break;
 					default:
-							printf("\Please choose a free position between 1 through 13 without a value\n");
+							printf("Please choose a free position between 1 through 13 without a value\n");
 							break;
 				}
 			}
@@ -451,7 +450,7 @@ void keepers()
 	int i = 0; 
 	int x=0;
 	
-	printf("\nvalues of dices from 1 to 5:  %d %d %d %d %d \nGeef de nummers van de dobbelstenen die je opnieuw wilt gooien (niet-keepers tussen 1-5), geef 0 in om te stoppen ", Dobbelstenen[0], Dobbelstenen[1], Dobbelstenen[2], Dobbelstenen[3], Dobbelstenen[4]);
+	printf("\nvalues of dices from 1 to 5:  %d %d %d %d %d \nType the numbers of the dices you wanna rethrow(1-5), enter \"0\" to stop choosing ", Dobbelstenen[0], Dobbelstenen[1], Dobbelstenen[2], Dobbelstenen[3], Dobbelstenen[4]);
 	
 	do
 	{
@@ -497,7 +496,7 @@ void keepers()
 	{
 		input = 1;
 		i=0;
-		printf("\nValues of the dices 1-5: %d %d %d %d %d \nchoose the dices you wanna rethrow, enter "0" to continue ", Dobbelstenen[0], Dobbelstenen[1], Dobbelstenen[2], Dobbelstenen[3], Dobbelstenen[4]);
+		printf("\nValues of the dices 1-5: %d %d %d %d %d \nchoose the dices you wanna rethrow, enter \"0\" to continue ", Dobbelstenen[0], Dobbelstenen[1], Dobbelstenen[2], Dobbelstenen[3], Dobbelstenen[4]);
 		do
 		{
 			scanf("%d",&input);
